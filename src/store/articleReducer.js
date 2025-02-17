@@ -3,6 +3,7 @@ import articles from '../data/data.json';
 const LOAD_ARTICLES = 'article/loadArticles';
 const ADD_ARTICLE = 'article/addArticle';
 
+// every action must return a "type" key!
 export const loadArticles = () => {
   return {
     type: LOAD_ARTICLES,
@@ -24,7 +25,7 @@ const articleReducer = (state = initialState, action) => {
     case LOAD_ARTICLES:
       return { ...state, entries: [...action.articles] };
     case ADD_ARTICLE:
-      return { ...state, entries: [...action.articles, action.article] }
+      return { ...state, entries: [...state.entries, action.article] }
     default:
       return state;
   }

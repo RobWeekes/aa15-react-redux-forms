@@ -5,7 +5,10 @@ import { loadArticles } from '../../store/articleReducer';
 
 const ArticleList = () => {
   const dispatch = useDispatch();
+  const state = useSelector(state => state);
+  console.log('state:', state);
   const articles = useSelector(state=>state.articleState.entries);
+  console.log('articles:', articles);
 
   useEffect(() => {
     dispatch(loadArticles());
